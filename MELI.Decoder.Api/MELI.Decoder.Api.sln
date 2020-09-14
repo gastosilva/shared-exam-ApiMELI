@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MELI.Decoder.Api", "MELI.Decoder.Api.csproj", "{BAF3D6BE-CB22-4790-A683-04313CECC7D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MELI.Decoder.Test", "..\MELI.Decoder.Test\MELI.Decoder.Test.csproj", "{0D4FC878-6ED1-4982-8105-571DCF898ED1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAF3D6BE-CB22-4790-A683-04313CECC7D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF3D6BE-CB22-4790-A683-04313CECC7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF3D6BE-CB22-4790-A683-04313CECC7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF3D6BE-CB22-4790-A683-04313CECC7D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D4FC878-6ED1-4982-8105-571DCF898ED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D4FC878-6ED1-4982-8105-571DCF898ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D4FC878-6ED1-4982-8105-571DCF898ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D4FC878-6ED1-4982-8105-571DCF898ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1FCCFD2D-F500-43C2-8B24-A67FF170DB79}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,127 @@
+swagger: "2.0"
+info:
+  description: "A simple Google Cloud Endpoints API example."
+  title: "API MELI"
+  version: "1.0.0"
+host: "api-mercadolibre.appspot.com"
+# [END swagger]
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+schemes:
+  - "https"
+paths:
+  "/translate/2text":
+    post:
+      description: "Converts a morse code to text."
+      operationId: "2text"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Text converted."
+          schema:
+            $ref: "#/definitions/converterResponse"
+      parameters:
+        -
+          description: "Text to convert."
+          in: body
+          name: text
+          required: true
+          schema:
+            $ref: "#/definitions/parameterDto"
+      security:
+        - api_key: []
+  "/translate/2morse":
+    post:
+      description: "Convert a text to morse code."
+      operationId: "2morse"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Text converted."
+          schema:
+            $ref: "#/definitions/converterResponse"
+      parameters:
+        -
+          description: "Text to convert."
+          in: body
+          name: text
+          required: true
+          schema:
+            $ref: "#/definitions/parameterDto"
+      security:
+        - api_key: []
+  "/auth/info/googlejwt":
+    get:
+      description: "Returns the requests' authentication information."
+      operationId: "auth_info_google_jwt"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Authenication info."
+          schema:
+            $ref: "#/definitions/authInfoResponse"
+      security:
+        - api_key: []
+          google_jwt: []
+  "/auth/info/googleidtoken":
+    get:
+      description: "Returns the requests' authentication information."
+      operationId: "authInfoGoogleIdToken"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Authenication info."
+          schema:
+            $ref: "#/definitions/authInfoResponse"
+      security:
+        - api_key: []
+          google_id_token: []
+definitions:
+  parameterDto:
+    type: "object"
+    properties:
+      text:
+        type: "string"
+  converterResponse:
+    type: "string"
+  authInfoResponse:
+    properties:
+      id:
+        type: "string"
+      email:
+        type: "string"
+securityDefinitions:
+  # This section configures basic authentication with an API key.
+  api_key:
+    type: "apiKey"
+    name: "key"
+    in: "query"
+  # This section configures authentication using Google API Service Accounts
+  # to sign a json web token. This is mostly used for server-to-server
+  # communication.
+  google_jwt:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    # This must match the 'iss' field in the JWT.
+    x-google-issuer: "jwt-client.endpoints.sample.google.com"
+    # Update this with your service account's email address.
+    x-google-jwks_uri: "https://www.googleapis.com/service_accounts/v1/jwk/YOUR-SERVICE-ACCOUNT-EMAIL"
+    # This must match the "aud" field in the JWT. You can add multiple
+    # audiences to accept JWTs from multiple clients.
+    x-google-audiences: "echo.endpoints.sample.google.com"
+  # This section configures authentication using Google OAuth2 ID Tokens.
+  # ID Tokens can be obtained using OAuth2 clients, and can be used to access
+  # your API on behalf of a particular user.
+  google_id_token:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    x-google-issuer: "https://accounts.google.com"
+    x-google-jwks_uri: "https://www.googleapis.com/oauth2/v3/certs"
